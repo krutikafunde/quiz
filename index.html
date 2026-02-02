@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For You 💗</title>
+  <title>For You</title>
   <style>
     body {
       background: linear-gradient(135deg, #87CEEB, #FFB6C1);
@@ -117,9 +117,11 @@
       content.innerHTML = `
         <div class="score" id="score"></div>
        
-        <h1><p>Q1. Who loves you the most?</p></h1>
-        <button onclick="answer(true, 2)">YOU </button> <br/>
-        <button onclick="answer(false, 2)">ME </button>
+        <h1><p>Q1. The year me meet?</p></h1>
+        <button onclick="answer(false, 2)">2021 </button> <br/>
+        <button onclick="answer(true, 2)">2022 </button> <br/>
+        <button onclick="answer(false, 2)">2023 </button> <br/>
+        <button onclick="answer(false, 2)">NONE </button>
       `;
       updateScore();
     }
@@ -128,7 +130,7 @@
       content.innerHTML = `
         <div class="score" id="score"></div>
         
-        <h1><p>Q2. What is the first gift that I bought?</p></h1>
+        <h1><p>Q2. What was the first gift that I bought?</p></h1>
         <button onclick="answer(false, 3)">SHIRT</button> <br/>
         <button onclick="answer(true, 3)">CHOCOLATES</button> <br/>
         <button onclick="answer(false, 3)">FLOWERS</button> <br/>
