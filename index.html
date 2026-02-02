@@ -5,7 +5,7 @@
   <title>For You 💗</title>
   <style>
     body {
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      background: linear-gradient(135deg, #87CEEB, #FFB6C1);
       font-family: 'Comic Sans MS', cursive, sans-serif;
       height: 100vh;
       margin: 0;
@@ -118,7 +118,7 @@
         <div class="score" id="score"></div>
        
         <h1><p>Q1. Who loves you the most?</p></h1>
-        <button onclick="answer(true, 2)">YOU </button>
+        <button onclick="answer(true, 2)">YOU </button> <br/>
         <button onclick="answer(false, 2)">ME </button>
       `;
       updateScore();
@@ -128,9 +128,11 @@
       content.innerHTML = `
         <div class="score" id="score"></div>
         
-        <h1><p>Who is the luckiest person here?</p></h1>
-        <button onclick="answer(true, 3)">ME</button>
-        <button onclick="answer(false, 3)">YOU</button>
+        <h1><p>Q2. What is the first gift that I bought?</p></h1>
+        <button onclick="answer(false, 3)">SHIRT</button> <br/>
+        <button onclick="answer(true, 3)">CHOCOLATES</button> <br/>
+        <button onclick="answer(false, 3)">FLOWERS</button> <br/>
+        <button onclick="answer(false, 3)">NONE</button>
       `;
       updateScore();
     }
@@ -139,9 +141,11 @@
       content.innerHTML = `
         <div class="score" id="score"></div>
         
-        <h1><p>Do we make a perfect team? </p></h1>
-        <button onclick="answer(true, 4)">ABSOLUTELY</button>
-        <button onclick="answer(false, 4)">YES️</button>
+        <h1><p>Q3. Our First Trip? </p></h1>
+        <button onclick="answer(false, 4)">MANALI</button> <br/>
+        <button onclick="answer(true, 4)">JAIPUR</button> <br/>
+        <button onclick="answer(false, 4)">GOA</button> <br/>
+        <button onclick="answer(false, 4)">NONE</button>
       `;
       updateScore();
     }
@@ -150,8 +154,8 @@
       content.innerHTML = `
         <div class="score" id="score"></div>
         
-        <h1><p>Are you smiling right now? </p></h1>
-        <button onclick="answer(true, 5)">YES </button>
+        <h1><p>Q4. Are you smiling right now? </p></h1>
+        <button onclick="answer(true, 5)">YES </button> <br/>
         <button onclick="answer(false, 5)">MAYBE</button>
       `;
       updateScore();
@@ -182,7 +186,7 @@
         justify-content:center;
         align-items:center;
         height:100vh;
-        background:linear-gradient(135deg, #ff9a9e, #fad0c4);
+        background:linear-gradient(135deg, #87CEEB, #FFB6C1);
         font-family:'Comic Sans MS', cursive;
         text-align:center;">
         <h1 style="color:#ff4d6d;">YAY!!! You're my Valentine! </h1>
