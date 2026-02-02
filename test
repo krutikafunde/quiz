@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You 💗</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+
+    .score {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 14px;
+      color: #ff4d6d;
+      font-weight: bold;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    button {
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      background-color: #ff4d6d;
+      color: white;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff4d6d;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 30px;
+      font-size: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      display: none;
+      animation: fadeInOut 3s ease;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translate(-50%, 20px); }
+      15% { opacity: 1; transform: translate(-50%, 0); }
+      85% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card" id="content">
+  <div class="score" id="score">Score: 0/4</div>
+  <h1>Hey Babe...</h1>
+  <p>little quiz please</p>
+  <button onclick="nextQuestion(1)">START</button>
+</div>
+
+<div class="toast" id="toast">
+  ❌ Invalid — it seems you are already my Valentine </div>
+
+<script>
+  let currentScore = 0;
+  const totalQuestions = 4;
+
+  function updateScore() {
+    document.getElementById("score").innerText =
+      `Score: ${currentScore}/${totalQuestions}`;
+  }
+
+  function answer(correct, nextStep) {
+    if (correct) currentScore++;
+    updateScore();
+    nextQuestion(nextStep);
+  }
+
+  function nextQuestion(step) {
+    const content = document.getElementById("content");
+
+    if (step === 1) {
+      content.innerHTML = `
+        <div class="score" id="score"></div>
+       
+        <h1><p>Q1. Who loves you the most?</p></h1>
+        <button onclick="answer(true, 2)">YOU </button>
+        <button onclick="answer(false, 2)">ME </button>
+      `;
+      updateScore();
+    }
+
+    else if (step === 2) {
+      content.innerHTML = `
+        <div class="score" id="score"></div>
+        
+        <h1><p>Who is the luckiest person here?</p></h1>
+        <button onclick="answer(true, 3)">ME</button>
+        <button onclick="answer(false, 3)">YOU</button>
+      `;
+      updateScore();
+    }
+
+    else if (step === 3) {
+      content.innerHTML = `
+        <div class="score" id="score"></div>
+        
+        <h1><p>Do we make a perfect team? </p></h1>
+        <button onclick="answer(true, 4)">ABSOLUTELY</button>
+        <button onclick="answer(false, 4)">YES️</button>
+      `;
+      updateScore();
+    }
+
+    else if (step === 4) {
+      content.innerHTML = `
+        <div class="score" id="score"></div>
+        
+        <h1><p>Are you smiling right now? </p></h1>
+        <button onclick="answer(true, 5)">YES </button>
+        <button onclick="answer(false, 5)">MAYBE</button>
+      `;
+      updateScore();
+    }
+
+    else if (step === 5) {
+      // FINAL VALENTINE PAGE
+      content.innerHTML = `
+        <div style="font-size:40px;">💖</div>
+        <h1>LAST QUESTION ️</h1>
+        <p>
+          You scored <b>${currentScore}/${totalQuestions}</b> 😍
+          <br><br>
+          Will you be my Valentine? 💗
+        </p>
+
+        <button onclick="sayYes()">YES </button>
+        <button onclick="showToast()">NO </button>
+      `;
+    }
+  }
+
+  function sayYes() {
+    document.body.innerHTML = `
+      <div style="
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        background:linear-gradient(135deg, #ff9a9e, #fad0c4);
+        font-family:'Comic Sans MS', cursive;
+        text-align:center;">
+        <h1 style="color:#ff4d6d;">YAY!!! You're my Valentine! </h1>
+        <p style="font-size:22px;"> 
+          
+          Thanks Babe for making my day special 💗
+        </p>
+      </div>`;
+  }
+
+  function showToast() {
+    const toast = document.getElementById("toast");
+    toast.style.display = "block";
+
+    setTimeout(() => {
+      toast.style.display = "none";
+    }, 3000);
+  }
+</script>
+
+</body>
+</html>
